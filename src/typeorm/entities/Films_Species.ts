@@ -1,13 +1,13 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
-@Entity({ name: 'People_Films' })
-export class People_FilmsEntity {
+@Entity({ name: 'Films_Species' })
+export class Films_SpeciesEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
   @Column()
-  id_people: number;
+  id_films: number;
 
   @Column()
-  id_films: number;
+  id_species: number;
 }

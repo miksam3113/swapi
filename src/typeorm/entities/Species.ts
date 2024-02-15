@@ -1,7 +1,7 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
-@Entity({ name: 'People' })
-export class PeopleEntity {
+@Entity({ name: 'Species' })
+export class SpeciesEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
@@ -9,28 +9,31 @@ export class PeopleEntity {
   name: string;
 
   @Column()
-  height: string;
+  classification: string;
 
   @Column()
-  mass: string;
+  designation: string;
 
   @Column()
-  hair_color: string;
+  average_height: string;
 
   @Column()
   skin_color: string;
 
   @Column()
-  eye_color: string;
+  hair_colors: string;
 
   @Column()
-  birth_year: string;
+  eye_colors: string;
 
   @Column()
-  gender: string;
+  average_lifespan: string;
 
   @Column()
   homeworld: string;
+
+  @Column()
+  language: string;
 
   @Column()
   created: string;

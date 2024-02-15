@@ -8,10 +8,14 @@ import {
   Put,
   Query,
 } from '@nestjs/common';
-import { FilmsDto } from './films.dto';
 import { FilmsService } from './films.service';
+import entities from '../config/entities';
 
-@Controller('people')
+@Controller(
+  entities.find(
+    (entity: { title: string; url: string }) => entity.title === 'films',
+  ).title,
+)
 export class FilmsController {
   constructor(private filmsService: FilmsService) {}
 

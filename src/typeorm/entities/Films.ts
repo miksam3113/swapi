@@ -1,6 +1,4 @@
-import { Column, Entity, ManyToMany, PrimaryGeneratedColumn } from 'typeorm';
-import { PeopleDto } from '../../people/people.dto';
-import { FilmsDto } from '../../films/films.dto';
+import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity({ name: 'Films' })
 export class FilmsEntity {

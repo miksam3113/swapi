@@ -1,7 +1,7 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
-@Entity({ name: 'People_Films' })
-export class People_FilmsEntity {
+@Entity({ name: 'People_Vehicles' })
+export class People_VehiclesEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
@@ -9,5 +9,5 @@ export class People_FilmsEntity {
   id_people: number;
 
   @Column()
-  id_films: number;
+  id_vehicles: number;
 }

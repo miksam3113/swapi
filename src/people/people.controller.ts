@@ -9,10 +9,15 @@ import {
   Put,
   Query,
 } from '@nestjs/common';
-import { PeopleDto } from './people.dto';
 import { PeopleService } from './people.service';
+import entities from '../config/entities';
+import { peopleProps } from '../utils/types';
 
-@Controller('people')
+@Controller(
+  entities.find(
+    (entity: { title: string; url: string }) => entity.title === 'people',
+  ).title,
+)
 export class PeopleController {
   constructor(private peopleService: PeopleService) {}
 
@@ -27,14 +32,14 @@ export class PeopleController {
   }
 
   @Post()
-  createPeople(@Body() createPeopleDto: PeopleDto) {
+  createPeople(@Body() createPeopleDto: peopleProps) {
     return this.peopleService.createPeople(createPeopleDto);
   }
 
   @Put(':id')
   updatePeople(
     @Param('id', ParseIntPipe) id: number,
-    @Body() updatePeopleDto: PeopleDto,
+    @Body() updatePeopleDto: peopleProps,
   ) {
     return this.peopleService.updatePeople(id, updatePeopleDto);
   }

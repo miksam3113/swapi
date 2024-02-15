@@ -1,7 +1,7 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
-@Entity({ name: 'People' })
-export class PeopleEntity {
+@Entity({ name: 'Planets' })
+export class PlanetsEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
@@ -9,28 +9,28 @@ export class PeopleEntity {
   name: string;
 
   @Column()
-  height: string;
+  rotation_period: string;
 
   @Column()
-  mass: string;
+  orbital_period: string;
 
   @Column()
-  hair_color: string;
+  diameter: string;
 
   @Column()
-  skin_color: string;
+  climate: string;
 
   @Column()
-  eye_color: string;
+  gravity: string;
 
   @Column()
-  birth_year: string;
+  terrain: string;
 
   @Column()
-  gender: string;
+  surface_water: string;
 
   @Column()
-  homeworld: string;
+  population: string;
 
   @Column()
   created: string;

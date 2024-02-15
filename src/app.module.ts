@@ -3,23 +3,15 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { PeopleModule } from './people/people.module';
-import { PeopleEntity } from './typeorm/entities/People';
-import { FilmsEntity } from './typeorm/entities/Films';
-import { People_FilmsEntity } from './typeorm/entities/People_Films';
+import { dbConfig } from './config/db.config';
+import { FileModule } from './file/file.module';
 
 @Module({
   imports: [
-    TypeOrmModule.forRoot({
-      type: 'mysql',
-      host: '127.0.0.1',
-      port: 3306,
-      username: 'root',
-      password: '',
-      database: 'swapi',
-      entities: [PeopleEntity, FilmsEntity, People_FilmsEntity],
-      synchronize: true,
-    }),
+    TypeOrmModule.forRoot(dbConfig),
     PeopleModule,
+    FileModule,
+    // PlanetsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

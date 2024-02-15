@@ -1,8 +1,15 @@
 import { Injectable } from '@nestjs/common';
+import entities from './config/entities';
 
 @Injectable()
 export class AppService {
-  getHello(): string {
-    return 'Hello World!';
+  getEntities(): {} {
+    const result = {};
+
+    for (const [index, value] of entities.entries()) {
+      result[value.title] = value.url;
+    }
+
+    return result;
   }
 }
