@@ -30,9 +30,6 @@ export class PeopleEntity {
   gender: string;
 
   @Column()
-  homeworld: string;
-
-  @Column()
   created: string;
 
   @Column()

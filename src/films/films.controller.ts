@@ -1,6 +1,7 @@
 import {
   Body,
   Controller,
+  Delete,
   Get,
   Param,
   ParseIntPipe,
@@ -10,6 +11,7 @@ import {
 } from '@nestjs/common';
 import { FilmsService } from './films.service';
 import entities from '../config/entities';
+import { filmsProps } from '../utils/types';
 
 @Controller(
   entities.find(
@@ -19,26 +21,31 @@ import entities from '../config/entities';
 export class FilmsController {
   constructor(private filmsService: FilmsService) {}
 
-  // @Get('/')
-  // getAllPeoples(@Query() params: any) {
-  //   return this.peopleService.getAllPeoples(params.page ? params.page : '1');
-  // }
-  //
-  // @Get(':id')
-  // getPeople(@Param('id', ParseIntPipe) id: number) {
-  //   return this.peopleService.getPeople(id);
-  // }
-  //
-  // @Post()
-  // createPeople(@Body() createPeopleDto: FilmsDto) {
-  //   return this.peopleService.createPeople(createPeopleDto);
-  // }
-  //
-  // @Put(':id')
-  // updatePeople(
-  //   @Param('id', ParseIntPipe) id: number,
-  //   @Body() updatePeopleDto: FilmsDto,
-  // ) {
-  //   return this.peopleService.updatePeople(id, updatePeopleDto);
-  // }
+  @Get('/')
+  getAllFilms(@Query() params: any) {
+    return this.filmsService.getAllFilms(params.page ? params.page : '1');
+  }
+
+  @Get(':id')
+  getFilm(@Param('id', ParseIntPipe) id: number) {
+    return this.filmsService.getFilm(id);
+  }
+
+  @Post()
+  createFilm(@Body() createFilmDto: filmsProps) {
+    return this.filmsService.createFilm(createFilmDto);
+  }
+
+  @Put(':id')
+  updateFilm(
+    @Param('id', ParseIntPipe) id: number,
+    @Body() updateFilmDto: filmsProps,
+  ) {
+    return this.filmsService.updateFilm(id, updateFilmDto);
+  }
+
+  @Delete(':id')
+  deleteFilm(@Param('id', ParseIntPipe) id: number) {
+    return this.filmsService.deleteFilm(id);
+  }
 }

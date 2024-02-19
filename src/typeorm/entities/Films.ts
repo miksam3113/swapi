@@ -9,9 +9,6 @@ export class FilmsEntity {
   title: string;
 
   @Column()
-  height: string;
-
-  @Column()
   episode_id: number;
 
   @Column()

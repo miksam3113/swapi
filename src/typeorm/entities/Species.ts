@@ -18,7 +18,7 @@ export class SpeciesEntity {
   average_height: string;
 
   @Column()
-  skin_color: string;
+  skin_colors: string;
 
   @Column()
   hair_colors: string;
@@ -28,9 +28,6 @@ export class SpeciesEntity {
 
   @Column()
   average_lifespan: string;
-
-  @Column()
-  homeworld: string;
 
   @Column()
   language: string;
