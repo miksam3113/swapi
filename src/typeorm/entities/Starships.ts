@@ -36,6 +36,9 @@ export class StarshipsEntity {
   MGLT: string;
 
   @Column()
+  starship_class: string;
+
+  @Column()
   cargo_capacity: string;
 
   @Column()

@@ -202,7 +202,7 @@ export class SpeciesService {
 
     await this.speciesRepository.save(newSpecie);
 
-    return `{"created": "ok", "id": "${newId}"}`;
+    return `${newId}`;
   }
 
   async updateSpecie(id: number, specieDetails: speciesProps) {
@@ -367,7 +367,7 @@ export class SpeciesService {
       return new NotImplementedException('Specie update error').getResponse();
     }
 
-    return '{"updated": "ok"}';
+    return { entity: 'species', id: id };
   }
 
   async deleteSpecie(id: number) {
@@ -411,6 +411,6 @@ export class SpeciesService {
       return new NotImplementedException('Specie delete error').getResponse();
     }
 
-    return `{"deleted": "ok"}`;
+    return { entity: 'species', id: id };
   }
 }

@@ -266,7 +266,7 @@ export class FilmsService {
       }
     }
 
-    return `{"created": "ok", "id": "${newId}"}`;
+    return `${newId}`;
   }
 
   async updateFilm(id: number, filmDetails: filmsProps) {
@@ -538,7 +538,7 @@ export class FilmsService {
       return new NotImplementedException('Film update error').getResponse();
     }
 
-    return '{"updated": "ok"}';
+    return { entity: 'films', id: id };
   }
 
   async deleteFilm(id: number) {
@@ -608,6 +608,6 @@ export class FilmsService {
       return new NotImplementedException('Film delete error').getResponse();
     }
 
-    return `{"deleted": "ok"}`;
+    return { entity: 'films', id: id };
   }
 }

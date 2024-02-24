@@ -185,7 +185,7 @@ export class PlanetsService {
 
     await this.planetsRepository.save(newPlanet);
 
-    return `{"created": "ok", "id": "${newId}"}`;
+    return `${newId}`;
   }
 
   async updatePlanet(id: number, planetDetails: planetsProps) {
@@ -310,7 +310,7 @@ export class PlanetsService {
       return new NotImplementedException('Planet update error').getResponse();
     }
 
-    return '{"updated": "ok"}';
+    return { entity: 'planets', id: id };
   }
 
   async deletePlanet(id: number) {
@@ -344,6 +344,6 @@ export class PlanetsService {
       return new NotImplementedException('Planet delete error').getResponse();
     }
 
-    return `{"deleted": "ok"}`;
+    return { entity: 'planets', id: id };
   }
 }

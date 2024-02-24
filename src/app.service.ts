@@ -3,7 +3,7 @@ import entities from './config/entities';
 
 @Injectable()
 export class AppService {
-  getEntities(): {} {
+  getEntities() {
     const result = {};
 
     for (const [index, value] of entities.entries()) {

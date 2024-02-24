@@ -257,7 +257,7 @@ export class PeopleService {
 
     await this.peopleRepository.save(newPeople);
 
-    return `{"created": "ok", "id": "${newPeople.id}"}`;
+    return `${newPeople.id}`;
   }
 
   async updatePeople(id: number, peopleDetails: peopleProps) {
@@ -525,7 +525,7 @@ export class PeopleService {
       return new NotImplementedException('People update error').getResponse();
     }
 
-    return '{"updated": "ok"}';
+    return { entity: 'people', id: id };
   }
 
   async deletePeople(id: number) {
@@ -593,6 +593,6 @@ export class PeopleService {
       return new NotImplementedException('People delete error').getResponse();
     }
 
-    return `{"deleted": "ok"}`;
+    return { entity: 'people', id: id };
   }
 }

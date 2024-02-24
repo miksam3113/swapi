@@ -8,6 +8,8 @@ import { FileModule } from './file/file.module';
 import { FilmsModule } from './films/films.module';
 import { PlanetsModule } from './planets/planets.module';
 import { SpeciesModule } from './species/species.module';
+import { StarshipsModule } from './starships/starships.module';
+import { VehiclesModule } from './vehicles/vehicles.module';
 
 @Module({
   imports: [
@@ -17,6 +19,8 @@ import { SpeciesModule } from './species/species.module';
     FilmsModule,
     PlanetsModule,
     SpeciesModule,
+    StarshipsModule,
+    VehiclesModule,
   ],
   controllers: [AppController],
   providers: [AppService],
