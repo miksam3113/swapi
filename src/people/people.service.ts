@@ -34,7 +34,12 @@ export class PeopleService {
     const countPeoples = await this.peopleRepository.count();
 
     if (!countPeoples || countPeoples / 10 + 1 < +page) {
-      return new NotFoundException('Peoples not found').getResponse();
+      return {
+        count: countPeoples,
+        next: null,
+        previous: null,
+        results: [],
+      };
     }
 
     const nextPage =
